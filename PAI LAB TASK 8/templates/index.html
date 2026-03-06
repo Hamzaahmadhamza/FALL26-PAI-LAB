@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Joke App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        async function fetchJoke() {
+            const response = await fetch('/joke');
+            const data = await response.json();
+            document.getElementById('setup').innerText = data.setup || "Error fetching joke";
+            document.getElementById('punchline').innerText = data.punchline || "";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Joke App</h1>
+        <div class="joke">
+            <p id="setup">Click the button to get a joke!</p>
+            <p id="punchline"></p>
+        </div>
+        <button onclick="fetchJoke()">Get Joke</button>
+    </div>
+</body>
+</html>
