@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: 0.3s;
+}
+
+body.light {
+    background: #f4f4f4;
+    color: black;
+}
+
+.container {
+    width: 430px;
+    height: 620px;
+    background: rgba(17, 24, 39, 0.95);
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+body.light .container {
+    background: white;
+}
+
+.header {
+    background: linear-gradient(90deg, #6366f1, #4f46e5);
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.chat-box {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background: #6366f1;
+    border-radius: 10px;
+}
+
+.user,
+.bot {
+    padding: 10px 12px;
+    border-radius: 14px;
+    max-width: 75%;
+    font-size: 14px;
+    line-height: 1.4;
+    animation: fadeIn 0.2s ease-in;
+}
+
+.user {
+    align-self: flex-end;
+    background: #6366f1;
+    color: white;
+    border-bottom-right-radius: 0;
+}
+
+.bot {
+    align-self: flex-start;
+    background: #374151;
+    color: white;
+    border-bottom-left-radius: 0;
+}
+
+body.light .bot {
+    background: #e5e7eb;
+    color: black;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.input-area {
+    display: flex;
+    padding: 10px;
+    background: #0b1220;
+    border-top: 1px solid #1f2937;
+}
+
+body.light .input-area {
+    background: #ddd;
+}
+
+textarea {
+    flex: 1;
+    height: 50px;
+    resize: none;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    outline: none;
+    background: #1f2937;
+    color: white;
+}
+
+body.light textarea {
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+}
+
+button {
+    margin-left: 10px;
+    padding: 10px 15px;
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #4f46e5;
+    transform: scale(1.05);
+}
